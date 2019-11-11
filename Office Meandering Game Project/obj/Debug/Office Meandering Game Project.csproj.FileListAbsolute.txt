@@ -1,0 +1,11 @@
+C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\Office Meandering Game Project\bin\Debug\Office Meandering Game Project.exe.config
+C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\Office Meandering Game Project\bin\Debug\Office Meandering Game Project.exe
+C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\Office Meandering Game Project\bin\Debug\Office Meandering Game Project.pdb
+C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\Office Meandering Game Project\obj\Debug\Office Meandering Game Project.csprojAssemblyReference.cache
+C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\Office Meandering Game Project\obj\Debug\Office_Meandering_Game_Project.Menu.resources
+C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\Office Meandering Game Project\obj\Debug\Office_Meandering_Game_Project.Properties.Resources.resources
+C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\Office Meandering Game Project\obj\Debug\Office Meandering Game Project.csproj.GenerateResource.cache
+C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\Office Meandering Game Project\obj\Debug\Office Meandering Game Project.exe
+C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\Office Meandering Game Project\obj\Debug\Office Meandering Game Project.pdb
+C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\Office Meandering Game Project\obj\Debug\Office_Meandering_Game_Project.Options.resources
+C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\Office Meandering Game Project\obj\Debug\Office_Meandering_Game_Project.Game.resources
