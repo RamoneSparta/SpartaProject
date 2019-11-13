@@ -133,6 +133,7 @@ namespace Office_Meandering_Game_Project
                     if (((PictureBox)y).Right < this.Width - 800)
                     {
                         this.Controls.Remove(y);
+                        y.Dispose();
                     }
                 }
             }
@@ -155,6 +156,7 @@ namespace Office_Meandering_Game_Project
 
             //}
 
+        //    GameOver();
         }
 
 
@@ -178,7 +180,9 @@ namespace Office_Meandering_Game_Project
                     y.Left -= playerSpeed;
                     if (((PictureBox)y).Left < this.Width - 800)
                     {
+                        
                         this.Controls.Remove(y);
+                        y.Dispose();
                     }
                 }
                 //foreach (Control i in this.Controls)
@@ -199,12 +203,12 @@ namespace Office_Meandering_Game_Project
                 //    }
                 //}
 
-
+             //   GameOver();
             }
         }
 
         private void MakeBullets()
-        {
+         {
             PictureBox bullet = new PictureBox();
             bullet.Image = Properties.Resources.bullet;
             bullet.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -215,16 +219,21 @@ namespace Office_Meandering_Game_Project
             this.Controls.Add(bullet);
             bullet.BringToFront();
             CalcDamage1(bullet);
+            
 
 
         }
         public void CalcDamage1(PictureBox bullet)
         {
-            if (bullet.Location.Y <= Player2.Location.X)
+            if (bullet.Location.Y <= Player2.Location.Y)
             {
                 if (bullet.Location.Y >= (Player2.Location.Y - Player2.Height))
                 {
                     Player2Health--;
+                    if (Player2Health == 0)
+                    {
+                        GameOver();
+                    }
                 }
             }
         }
@@ -246,11 +255,15 @@ namespace Office_Meandering_Game_Project
 
         public void CalcDamage2(PictureBox bullet)
         {
-            if (bullet.Location.Y >= Player1.Location.X)
+            if (bullet.Location.Y >= Player1.Location.Y)
             {
                 if (bullet.Location.Y <= (Player1.Location.Y + Player1.Height))
                 {
                     Player1Health--;
+                    if (Player1Health == 0)
+                    {
+                        GameOver();
+                    }
                 }
             }
         }
@@ -272,6 +285,7 @@ namespace Office_Meandering_Game_Project
             }
 
         }
+
 
 
         private void DisablePannel()
@@ -309,10 +323,20 @@ namespace Office_Meandering_Game_Project
         }
 
         public void GameOver()
-        {
+         {
             timer1.Stop();
             timer2.Stop();
-            MessageBox.Show("Game Over Someone Wins");
+            if (Player1Health <= 0)
+            {
+                MessageBox.Show("Player 2 Wins");
+                this.Close();
+            }
+            else if (Player2Health <= 0)
+            {
+                MessageBox.Show("Player 1 Wins!!!");
+                this.Close();
+            }
+            
         }
     }
 }
