@@ -13,9 +13,10 @@ namespace Office_Meandering_Game_Project
     public partial class Game : Form
     {
         private List<Panel> listOfPanels = new List<Panel>();
-        private int player1Health = 10;
-        private int player2Health = 10;
+        private int player1Health = 20;
+        private int player2Health = 20;
         private int playerSpeed = 10;
+        private int bulletSpeed = 250;
         private int panelIndex = 0;
         private bool goUp;
         private bool goUp2;
@@ -27,6 +28,7 @@ namespace Office_Meandering_Game_Project
         public int Player1Health { get => player1Health; set => player1Health = value; }
         public int Player2Health { get => player2Health; set => player2Health = value; }
         public int PlayerSpeed { get => playerSpeed; set => playerSpeed = value; }
+        public int BulletSpeed { get => bulletSpeed; set => bulletSpeed = value; }
         public int PanelIndex { get => panelIndex; set => panelIndex = value; }
         public bool GoUp { get => goUp; set => goUp = value; }
         public bool GoUp2 { get => goUp2; set => goUp2 = value; }
@@ -34,6 +36,7 @@ namespace Office_Meandering_Game_Project
         public bool GoDown2 { get => goDown2; set => goDown2 = value; }
         public bool IsPressed { get => isPressed; set => isPressed = value; }
         public bool IsPressed2 { get => isPressed2; set => isPressed2 = value; }
+
 
         public Game()
         {
@@ -129,7 +132,7 @@ namespace Office_Meandering_Game_Project
             {
                 if (y is PictureBox && y.Tag == "bullet")
                 {
-                    y.Left += playerSpeed;
+                    y.Left += BulletSpeed;
                     if (((PictureBox)y).Right < this.Width - 800)
                     {
                         this.Controls.Remove(y);
@@ -156,7 +159,6 @@ namespace Office_Meandering_Game_Project
 
             //}
 
-        //    GameOver();
         }
 
 
@@ -165,7 +167,7 @@ namespace Office_Meandering_Game_Project
             label2.Text = "Health: " + player2Health.ToString();
             if (GoUp2 && Player2.Top > 0)
             {
-                Player2.Top -= PlayerSpeed;
+                Player2.Top -= playerSpeed;
 
             }
             else if (GoDown2 && Player2.Bottom < 350)
@@ -177,7 +179,7 @@ namespace Office_Meandering_Game_Project
             {
                 if (y is PictureBox && y.Tag == "bullet2")
                 {
-                    y.Left -= playerSpeed;
+                    y.Left -= BulletSpeed;
                     if (((PictureBox)y).Left < this.Width - 800)
                     {
                         
@@ -203,7 +205,6 @@ namespace Office_Meandering_Game_Project
                 //    }
                 //}
 
-             //   GameOver();
             }
         }
 
@@ -225,13 +226,14 @@ namespace Office_Meandering_Game_Project
         }
         public void CalcDamage1(PictureBox bullet)
         {
-            if (bullet.Location.Y <= Player2.Location.Y)
+            if (bullet.Location.Y <= (Player2.Location.Y + Player2.Height) && bullet.Location.Y >= (Player2.Location.Y ))
             {
-                if (bullet.Location.Y >= (Player2.Location.Y - Player2.Height))
+                if ( bullet.Location.X <= Player2.Location.X )
                 {
                     Player2Health--;
                     if (Player2Health == 0)
                     {
+                        label2.Text = "You ded now";
                         GameOver();
                     }
                 }
@@ -262,6 +264,7 @@ namespace Office_Meandering_Game_Project
                     Player1Health--;
                     if (Player1Health == 0)
                     {
+                        label1.Text = "You ded now";
                         GameOver();
                     }
                 }
@@ -338,5 +341,6 @@ namespace Office_Meandering_Game_Project
             }
             
         }
+
     }
 }
