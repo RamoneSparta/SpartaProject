@@ -51,32 +51,38 @@ namespace Office_Meandering_Game_Project
             if (e.KeyCode == Keys.W)
             {
                 GoUp = true;
+                e.Handled = e.SuppressKeyPress = true;
             }
 
             if (e.KeyCode == Keys.S)
             {
                 GoDown = true;
+                e.Handled = e.SuppressKeyPress = true;
             }
 
             if (e.KeyCode == Keys.Space && !isPressed)
             {
                 isPressed = true;
+                e.Handled = e.SuppressKeyPress = true;
                 MakeBullets();
             }
 
             if (e.KeyCode == Keys.NumPad8)
-           {
+            {
                 GoUp2 = true;
+                e.Handled = e.SuppressKeyPress = true;
             }
 
             if (e.KeyCode == Keys.NumPad5)
             {
                 GoDown2 = true;
+                e.Handled = e.SuppressKeyPress = true;
             }
 
             if (e.KeyCode == Keys.Right && !isPressed2)
             {
                 isPressed2 = true;
+                e.Handled = e.SuppressKeyPress = true;
                 MakeBullets2();
             }
 
@@ -87,11 +93,13 @@ namespace Office_Meandering_Game_Project
             if (e.KeyCode == Keys.W)
             {
                 GoUp = false;
+                
             }
 
             if (e.KeyCode == Keys.S)
             {
                 GoDown = false;
+                
             }
 
             if (isPressed)
