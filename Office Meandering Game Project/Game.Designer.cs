@@ -71,6 +71,7 @@
             // gamePanel
             // 
             this.gamePanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.gamePanel.BackgroundImage = global::Office_Meandering_Game_Project.Properties.Resources._11;
             this.gamePanel.Controls.Add(this.label2);
             this.gamePanel.Controls.Add(this.label1);
             this.gamePanel.Controls.Add(this.Player2);

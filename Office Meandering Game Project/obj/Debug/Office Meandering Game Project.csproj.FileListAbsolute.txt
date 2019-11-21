@@ -12,3 +12,4 @@ C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\O
 C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\Office Meandering Game Project\bin\Debug\Resources\sounds\Blazer Rail.wav
 C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\Office Meandering Game Project\bin\Debug\Resources\sounds\Lounge Game2.wav
 C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\Office Meandering Game Project\bin\Debug\Resources\sounds\220611__senitiel__pistol3.wav
+C:\Users\Ramone Nelson\Engineering45\Week3\Day5\Office Meandering Game Project\Office Meandering Game Project\obj\Debug\Office_Meandering_Game_Project.HTP.resources

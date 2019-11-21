@@ -39,14 +39,14 @@ namespace Office_Meandering_Game_Project
                     }
                     break;
 
-                case "Options":
+                case "How To Play":
                     
-                    if (Application.OpenForms.OfType<Options>().Count() == 1)
+                    if (Application.OpenForms.OfType<HTP>().Count() == 1)
                     {
-                        Application.OpenForms.OfType<Options>().First().Close();
+                        Application.OpenForms.OfType<HTP>().First().Close();
                     }
-                    Options op = new Options();
-                    op.Show();
+                    HTP htp = new HTP();
+                    htp.Show();
 
 
                     break;

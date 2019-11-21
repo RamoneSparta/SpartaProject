@@ -73,7 +73,7 @@ namespace Office_Meandering_Game_Project
             }
 
             if (e.KeyCode == Keys.NumPad8)
-            {
+           {
                 GoUp2 = true;
                 e.Handled = e.SuppressKeyPress = true;
             }
@@ -98,13 +98,11 @@ namespace Office_Meandering_Game_Project
             if (e.KeyCode == Keys.W)
             {
                 GoUp = false;
-                
             }
 
             if (e.KeyCode == Keys.S)
             {
                 GoDown = false;
-                
             }
 
             if (isPressed)
@@ -188,17 +186,17 @@ namespace Office_Meandering_Game_Project
 
         private void MakeBullets()
          {
-            PictureBox bullet = new PictureBox();
-            bullet.Image = Properties.Resources.bullet;
-            bullet.SizeMode = PictureBoxSizeMode.StretchImage;
-            bullet.Size = new Size(15, 15);
-            bullet.Tag = "bullet";
-            bullet.Left = Player1.Left + Player1.Width;
-            bullet.Top = Player1.Top + Player1.Height /2;
-            this.Controls.Add(bullet);
-            bullet.BringToFront();
+            PictureBox bulletT = new PictureBox();
+            bulletT.Image = Properties.Resources.bulletT;
+            bulletT.SizeMode = PictureBoxSizeMode.StretchImage;
+            bulletT.Size = new Size(15, 15);
+            bulletT.Tag = "bullet";
+            bulletT.Left = Player1.Left + Player1.Width;
+            bulletT.Top = Player1.Top + Player1.Height /2;
+            this.Controls.Add(bulletT);
+            bulletT.BringToFront();
             PlayBulletSound();
-            CalcDamage1(bullet);
+            CalcDamage1(bulletT);
             
 
 
@@ -222,17 +220,17 @@ namespace Office_Meandering_Game_Project
 
         private void MakeBullets2()
         {
-            PictureBox bullet2 = new PictureBox();
-            bullet2.Image = Properties.Resources.bullet2;
-            bullet2.SizeMode = PictureBoxSizeMode.StretchImage;
-            bullet2.Size = new Size(15, 15);
-            bullet2.Tag = "bullet2";
-            bullet2.Left = Player2.Left;
-            bullet2.Top = Player2.Top + Player2.Height /2;
-            this.Controls.Add(bullet2);
-            bullet2.BringToFront();
+            PictureBox bulletT2 = new PictureBox();
+            bulletT2.Image = Properties.Resources.bulletT2;
+            bulletT2.SizeMode = PictureBoxSizeMode.StretchImage;
+            bulletT2.Size = new Size(15, 15);
+            bulletT2.Tag = "bullet2";
+            bulletT2.Left = Player2.Left;
+            bulletT2.Top = Player2.Top + Player2.Height /2;
+            this.Controls.Add(bulletT2);
+            bulletT2.BringToFront();
             PlayBulletSound();
-            CalcDamage2(bullet2);
+            CalcDamage2(bulletT2);
             
         }
 
