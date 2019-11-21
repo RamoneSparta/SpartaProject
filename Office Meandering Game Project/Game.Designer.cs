@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.panstart = new System.Windows.Forms.Panel();
             this.gamePanel = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,13 +40,11 @@
             this.btnstart = new System.Windows.Forms.Button();
             this.Player1 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panstart = new System.Windows.Forms.Panel();
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.panstart.SuspendLayout();
             this.gamePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panstart.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -60,15 +59,25 @@
             this.timer2.Interval = 20;
             this.timer2.Tick += new System.EventHandler(this.Player2Timer);
             // 
+            // panstart
+            // 
+            this.panstart.BackColor = System.Drawing.Color.Transparent;
+            this.panstart.Controls.Add(this.gamePanel);
+            this.panstart.Location = new System.Drawing.Point(12, 6);
+            this.panstart.Name = "panstart";
+            this.panstart.Size = new System.Drawing.Size(838, 437);
+            this.panstart.TabIndex = 1;
+            // 
             // gamePanel
             // 
+            this.gamePanel.BackColor = System.Drawing.Color.WhiteSmoke;
             this.gamePanel.Controls.Add(this.label2);
             this.gamePanel.Controls.Add(this.label1);
             this.gamePanel.Controls.Add(this.Player2);
             this.gamePanel.Controls.Add(this.btnstart);
             this.gamePanel.Controls.Add(this.Player1);
             this.gamePanel.Controls.Add(this.pictureBox1);
-            this.gamePanel.Location = new System.Drawing.Point(3, 3);
+            this.gamePanel.Location = new System.Drawing.Point(0, 6);
             this.gamePanel.Name = "gamePanel";
             this.gamePanel.Size = new System.Drawing.Size(832, 431);
             this.gamePanel.TabIndex = 4;
@@ -91,7 +100,8 @@
             // 
             // Player2
             // 
-            this.Player2.Image = global::Office_Meandering_Game_Project.Properties.Resources.airplane2;
+            this.Player2.BackColor = System.Drawing.Color.Transparent;
+            this.Player2.Image = ((System.Drawing.Image)(resources.GetObject("Player2.Image")));
             this.Player2.Location = new System.Drawing.Point(697, 174);
             this.Player2.Name = "Player2";
             this.Player2.Size = new System.Drawing.Size(119, 90);
@@ -112,7 +122,8 @@
             // 
             // Player1
             // 
-            this.Player1.Image = global::Office_Meandering_Game_Project.Properties.Resources.airplane;
+            this.Player1.BackColor = System.Drawing.Color.Transparent;
+            this.Player1.Image = ((System.Drawing.Image)(resources.GetObject("Player1.Image")));
             this.Player1.Location = new System.Drawing.Point(24, 174);
             this.Player1.Name = "Player1";
             this.Player1.Size = new System.Drawing.Size(118, 90);
@@ -131,30 +142,22 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // panstart
-            // 
-            this.panstart.Controls.Add(this.gamePanel);
-            this.panstart.Location = new System.Drawing.Point(12, 15);
-            this.panstart.Name = "panstart";
-            this.panstart.Size = new System.Drawing.Size(838, 437);
-            this.panstart.TabIndex = 1;
-            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(862, 464);
+            this.ClientSize = new System.Drawing.Size(851, 448);
             this.Controls.Add(this.panstart);
             this.Name = "Game";
-            this.Text = "Form1";
+            this.Text = "Enjoy :)";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
+            this.panstart.ResumeLayout(false);
             this.gamePanel.ResumeLayout(false);
             this.gamePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Player2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Player1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panstart.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -170,6 +173,5 @@
         private System.Windows.Forms.Panel panstart;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Timer timer3;
     }
 }

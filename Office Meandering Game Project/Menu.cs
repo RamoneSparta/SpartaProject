@@ -7,14 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+using System.IO;
 
 namespace Office_Meandering_Game_Project
 {
     public partial class Menu : Form
     {
+        SoundPlayer mainMenu = new SoundPlayer();
+
         public Menu()
         {
             InitializeComponent();
+            PlayMusic();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,9 +33,9 @@ namespace Office_Meandering_Game_Project
                     }
                     else
                     {
+                       // StopMusic();
                         Game form = new Game();
                         form.Show();
-                        
                     }
                     break;
 
@@ -57,6 +62,17 @@ namespace Office_Meandering_Game_Project
         {
             Button btn = (Button)o;
             return btn.Text;
+        }
+
+        public void PlayMusic ()
+        {
+            mainMenu.SoundLocation = "Resources/sounds/Blazer Rail.wav";
+            mainMenu.PlayLooping();
+        }
+
+        public void StopMusic ()
+        {
+            mainMenu.Stop();
         }
 
     }

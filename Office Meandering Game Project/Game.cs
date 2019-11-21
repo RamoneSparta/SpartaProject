@@ -7,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
+
+
 
 namespace Office_Meandering_Game_Project
 {
     public partial class Game : Form
     {
+        private SoundPlayer gameMusic = new SoundPlayer();
         private List<Panel> listOfPanels = new List<Panel>();
         private int player1Health = 20;
         private int player2Health = 20;
         private int playerSpeed = 10;
-        private int bulletSpeed = 250;
+        private int bulletSpeed = 100;
         private int panelIndex = 0;
         private bool goUp;
         private bool goUp2;
@@ -44,6 +48,7 @@ namespace Office_Meandering_Game_Project
             listOfPanels.Add(panstart);
             listOfPanels.Add(gamePanel);
             EnablePannel();
+         //   PlayBackgroundMusic();
         }
 
         private void KeyIsDown(object sender, KeyEventArgs e)
@@ -60,7 +65,7 @@ namespace Office_Meandering_Game_Project
                 e.Handled = e.SuppressKeyPress = true;
             }
 
-            if (e.KeyCode == Keys.Space && !isPressed)
+            if (e.KeyCode == Keys.B && !isPressed)
             {
                 isPressed = true;
                 e.Handled = e.SuppressKeyPress = true;
@@ -79,7 +84,7 @@ namespace Office_Meandering_Game_Project
                 e.Handled = e.SuppressKeyPress = true;
             }
 
-            if (e.KeyCode == Keys.Right && !isPressed2)
+            if (e.KeyCode == Keys.Left && !isPressed2)
             {
                 isPressed2 = true;
                 e.Handled = e.SuppressKeyPress = true;
@@ -148,24 +153,6 @@ namespace Office_Meandering_Game_Project
                     }
                 }
             }
-            //foreach (Control i in this.Controls)
-            //{
-            //    foreach (Control j in this.Controls)
-            //    {
-            //        if (i.Tag == "bullet2" && i is PictureBox)
-            //        {
-            //            if (j is PictureBox && j.Tag == "airplane")
-            //            {
-            //                if (i.Bounds.IntersectsWith(j.Bounds))
-            //                {
-            //                    player1Health--;
-            //                    this.Controls.Remove(j);
-            //                }
-            //            }
-            //        }
-            //    }
-
-            //}
 
         }
 
@@ -195,23 +182,6 @@ namespace Office_Meandering_Game_Project
                         y.Dispose();
                     }
                 }
-                //foreach (Control i in this.Controls)
-                //{
-                //    foreach (Control j in this.Controls)
-                //    {
-                //        if (i.Tag == "bullet" && i is PictureBox)
-                //        {
-                //            if (j is PictureBox && j.Tag == "airplane2")
-                //            {
-                //                if (i.Bounds.IntersectsWith(j.Bounds))
-                //                {
-                //                    player1Health--;
-                //                    this.Controls.Remove(j);
-                //                }
-                //            }
-                //        }
-                //    }
-                //}
 
             }
         }
@@ -227,6 +197,7 @@ namespace Office_Meandering_Game_Project
             bullet.Top = Player1.Top + Player1.Height /2;
             this.Controls.Add(bullet);
             bullet.BringToFront();
+            PlayBulletSound();
             CalcDamage1(bullet);
             
 
@@ -242,6 +213,7 @@ namespace Office_Meandering_Game_Project
                     if (Player2Health == 0)
                     {
                         label2.Text = "You ded now";
+                       // StopMusic();
                         GameOver();
                     }
                 }
@@ -259,6 +231,7 @@ namespace Office_Meandering_Game_Project
             bullet2.Top = Player2.Top + Player2.Height /2;
             this.Controls.Add(bullet2);
             bullet2.BringToFront();
+            PlayBulletSound();
             CalcDamage2(bullet2);
             
         }
@@ -273,6 +246,7 @@ namespace Office_Meandering_Game_Project
                     if (Player1Health == 0)
                     {
                         label1.Text = "You ded now";
+                      //  StopMusic();
                         GameOver();
                     }
                 }
@@ -340,14 +314,35 @@ namespace Office_Meandering_Game_Project
             if (Player1Health <= 0)
             {
                 MessageBox.Show("Player 2 Wins");
+                this.Dispose();
                 this.Close();
+                
             }
             else if (Player2Health <= 0)
             {
                 MessageBox.Show("Player 1 Wins!!!");
+                this.Dispose();
                 this.Close();
             }
             
+        }
+
+        public void PlayBackgroundMusic()
+        {
+            gameMusic.SoundLocation = "Resources/sounds/Lounge Game2.wav";
+            gameMusic.PlayLooping();
+        }
+
+        public void PlayBulletSound()
+        {
+            var bulletSound = new System.Windows.Media.MediaPlayer();
+            bulletSound.Open(new Uri("Resources/sounds/220611__senitiel__pistol3.wav", UriKind.Relative));
+            bulletSound.Play();
+        }
+
+        public void StopMusic()
+        {
+            gameMusic.Stop();
         }
 
     }
